@@ -1,3 +1,4 @@
+import os # Acrescentar no topo do arquivo, na primeira linha
 """
 Django settings for webapp project.
 
@@ -122,3 +123,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Inclua no final do arquivo as duas configurações abaixo
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
