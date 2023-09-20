@@ -4,6 +4,7 @@ import json
 from django.core.serializers.json import DjangoJSONEncoder
 
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import DetailView, ListView, TemplateView
 from blog.models import Post
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -87,3 +88,11 @@ def create_post(request):
         response['Access-Control-Allow-Origin'] = '*'
 
         return response
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'post/post_list.html'
+    context_object_name = 'posts'
+
+class SobreTemplateView(TemplateView):
+    template_name = 'post/sobre.html'
