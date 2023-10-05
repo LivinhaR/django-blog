@@ -9,11 +9,14 @@ from blog.models import Post
 from blog.forms import PostModelForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 from django.http import HttpResponse
 
+@login_required # controle de acesso usando o decorador de função
 def index(request):
     # return HttpResponse('Olá Django - index')
     return render(request, 'index.html', {'titulo': 'Últimos Artigos'})
@@ -55,7 +58,7 @@ def get_post(request, post_id):
     
     return response
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post/post_form.html'
     # fields = ('body_text', )
