@@ -23,3 +23,8 @@ urlpatterns = [
     path('', include('accounts.urls')), # rotas personalizadas como accounts/signup
     path('accounts/', include('django.contrib.auth.urls')), # rotas fornecidas pelo Django
 ]
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
