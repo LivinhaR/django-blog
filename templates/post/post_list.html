@@ -9,6 +9,7 @@
             + Novo post
         </a>
         {% for post in posts %}
+
         <article>
             <h2>Em: {{ post.pub_date|date:"d / m / Y" }}</h2>
             {% if post.categoria %}
@@ -16,6 +17,10 @@
             {% endif %}
             <p>{{ post.body_text }}</p>
         </article>
+        <a href="{% url 'post_edit' pk=post.id %}" class="link-secondary">
+            Editar
+        </a>
+            
         {% endfor %}
     </div>
 </div>
