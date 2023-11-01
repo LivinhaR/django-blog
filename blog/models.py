@@ -18,9 +18,10 @@ class Post(models.Model):
         default=None,
         null=True
     )
-autor = models.ForeignKey(
-    User,
-    aditable=False,
-    on_delete=models.DO_NOTHING,
-    null=True
-)
+
+    autor = models.ForeignKey(
+        User,
+        editable=False,
+        on_delete=models.DO_NOTHING,
+        null=True
+    )
