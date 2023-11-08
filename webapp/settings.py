@@ -148,3 +148,11 @@ LOGOUT_REDIRECT_URL = '/admin'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 MEDIA_URL = '/media/' # Caminho para servir os arquivos de mídia
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files/') # Armazenamento dos arquivos
+
+# Serviço de E-mail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smto.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '<fornecido na aula>'
+EMAIL_HOST_PASSWORD = '<fornecido na aula>'
