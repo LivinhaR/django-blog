@@ -4,8 +4,6 @@
 <h1>{{ post.pub_date|date:"d / m / Y" }}</h1>
 <p>{{ post.body_text }}</p>
 </article>
-{% endblock %} <!-- fecha o bloco content -->
-
 <div class="card-body">
     <form action="{% url 'post_send' post_id=post.id %}" method="post">
     {% csrf_token %}
@@ -15,3 +13,5 @@
     <button type="submit" class="btn btn-warning">Enviar</button>
     </form>
 </div>
+{% endblock %} <!-- fecha o bloco content -->
+

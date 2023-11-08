@@ -147,7 +147,7 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
         return super(PostDeleteView, self).form_valid(form)
 
 def post_send(request, post_id):
-    post =  get_object_or_404 (Post, pk-post_id)
+    post =  get_object_or_404 (Post, pk=post_id)
     post_url = reverse_lazy('post_detail', args=[post_id])
     try:
         email = request.POST.get('email')
@@ -156,8 +156,8 @@ def post_send(request, post_id):
         
         link = f'{request._current_scheme_host}{post_url}'
         template = "post/post_send"
-        text_message = render_to_string(f" {template}.txt", {'post_link': link})
-        html_message = render_to_string(f" {template}.html", {'post_link': link})
+        text_message = render_to_string(f"{template}.txt", {'post_link': link})
+        html_message = render_to_string(f"{template}.html", {'post_link': link})
         send_mail(
             subject="Este assunto pode te interessar!", 
             message=text_message, 
